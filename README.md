@@ -1,1 +1,1 @@
-# connect_four
+# Backend for Connect Four game 
