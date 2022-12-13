@@ -6,7 +6,7 @@ const player2 = 2;
 const initBoard = () => {
   // Create a blank 6x7 matrix
   let board = [];
-  for (let r = 0; r < 6; r++) {
+  for (let r = 0; r < 7; r++) {
     let row = [];
     for (let c = 0; c < 7; c++) {
       row.push(null);
@@ -24,7 +24,7 @@ const initBoard = () => {
 
 const checkVertical = (board) => {
   // Check only if row is 3 or greater
-  for (let r = 3; r < 6; r++) {
+  for (let r = 3; r < 7; r++) {
     for (let c = 0; c < 7; c++) {
       if (board[r][c]) {
         if (
@@ -41,7 +41,7 @@ const checkVertical = (board) => {
 
 const checkHorizontal = (board) => {
   // Check only if column is 3 or less
-  for (let r = 0; r < 6; r++) {
+  for (let r = 0; r < 7; r++) {
     for (let c = 0; c < 4; c++) {
       if (board[r][c]) {
         if (
@@ -58,7 +58,7 @@ const checkHorizontal = (board) => {
 
 const checkDiagonalRight = (board) => {
   // Check only if row is 3 or greater AND column is 3 or less
-  for (let r = 3; r < 6; r++) {
+  for (let r = 3; r < 7; r++) {
     for (let c = 0; c < 4; c++) {
       if (board[r][c]) {
         if (
@@ -75,7 +75,7 @@ const checkDiagonalRight = (board) => {
 
 const checkDiagonalLeft = (board) => {
   // Check only if row is 3 or greater AND column is 3 or greater
-  for (let r = 3; r < 6; r++) {
+  for (let r = 3; r < 7; r++) {
     for (let c = 3; c < 7; c++) {
       if (board[r][c]) {
         if (
@@ -91,13 +91,14 @@ const checkDiagonalLeft = (board) => {
 };
 
 const checkDraw = (board) => {
-  for (let r = 0; r < 6; r++) {
+  for (let r = 0; r < 7; r++) {
     for (let c = 0; c < 7; c++) {
       if (board[r][c] === null) {
         return null;
       }
     }
   }
+  
   return 'draw';
 };
 
@@ -119,7 +120,7 @@ const playGame = (boardData, c) => {
   const { board, gameOver, currentPlayer } = boardData;
   if (!gameOver) {
     // Place piece on board
-    for (let r = 5; r >= 0; r--) {
+    for (let r = 6; r >= 0; r--) {
       if (!board[r][c]) {
         board[r][c] = currentPlayer;
         break;
